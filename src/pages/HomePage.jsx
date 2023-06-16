@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // import { Link, useLocation } from 'react-router-dom';
 import { getMovies } from '../services/api';
-import TrendMovies from '../components/TrendMovies/TrendMovies';
+import TrendMovies from '../components/MoviesGallery/MoviesGallery';
 
 const HomePage = () => {
   const [trendMovies, setTrendMovies] = useState(() =>

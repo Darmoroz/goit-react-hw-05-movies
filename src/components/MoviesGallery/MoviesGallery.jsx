@@ -1,22 +1,22 @@
 import { Link, useLocation } from 'react-router-dom';
-import { TrendMoviesGrid } from './TrendMovies.styled';
+import { MoviesGrid } from './MoviesGallery.styled';
 
-const TrendMovies = ({ movies }) => {
+const MoviesGallery = ({ movies }) => {
   const location = useLocation();
 
   return (
-    <TrendMoviesGrid>
+    <MoviesGrid>
       {movies.map(({ id, title, vote_average }) => {
         return (
           <li key={id}>
-            <Link to={`movies/${id}`} state={{ from: location }}>
+            <Link to={`/movies/${id}`} state={{ from: location }}>
               {title}
             </Link>
             <span>{vote_average.toFixed(1)}</span>
           </li>
         );
       })}
-    </TrendMoviesGrid>
+    </MoviesGrid>
   );
 };
-export default TrendMovies;
+export default MoviesGallery;

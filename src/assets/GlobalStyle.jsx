@@ -49,7 +49,6 @@ nav a.active{
 a:visited{
  color: #9FA4AF;
 }
-
 `;
 
 export default GlobalStyle;
