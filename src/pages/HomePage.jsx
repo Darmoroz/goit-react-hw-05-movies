@@ -1,22 +1,27 @@
 import { useState } from 'react';
+// import { Link, useLocation } from 'react-router-dom';
 import { getMovies } from '../services/api';
+import TrendMovies from '../components/TrendMovies/TrendMovies';
 
 const HomePage = () => {
-  const [trandMovies, setTrandMovies] = useState(() =>
+  const [trendMovies, setTrendMovies] = useState(() =>
     getMovies('trending/movie/day', { page: 1 }).then(({ data }) =>
-      setTrandMovies(data.results)
+      setTrendMovies(data.results)
     )
   );
-  console.log(trandMovies);
+
   return (
     <>
-      <h1>Today tranding movies</h1>
-      <ul>
-        {trandMovies.length &&
-          trandMovies.map(({ id }) => {
-            return <li key={id}></li>;
-          })}
-      </ul>
+      <h2
+        style={{
+          marginBottom: '16px',
+          textAlign: 'center',
+          textTransform: 'uppercase',
+        }}
+      >
+        Today trend movies
+      </h2>
+      {trendMovies.length && <TrendMovies movies={trendMovies} />}
     </>
   );
 };
