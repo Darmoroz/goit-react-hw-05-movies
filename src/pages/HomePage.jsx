@@ -5,9 +5,9 @@ import TrendMovies from '../components/MoviesGallery/MoviesGallery';
 
 const HomePage = () => {
   const [trendMovies, setTrendMovies] = useState(() =>
-    getMovies('trending/movie/day', { page: 1 }).then(({ data }) =>
-      setTrendMovies(data.results)
-    )
+    getMovies('trending/movie/day', { page: 1 })
+      .then(({ data }) => setTrendMovies(data.results))
+      .catch(error => console.log(error.message))
   );
 
   return (

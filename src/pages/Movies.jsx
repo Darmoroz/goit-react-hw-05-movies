@@ -18,10 +18,12 @@ const Movies = () => {
       return;
     }
 
-    getMovies('search/movie', { query }).then(({ data }) => {
-      setQueryMovies(data.results);
-      total.current = data.total_results;
-    });
+    getMovies('search/movie', { query })
+      .then(({ data }) => {
+        setQueryMovies(data.results);
+        total.current = data.total_results;
+      })
+      .catch(error => console.log(error.message));
   }, [query]);
 
   const updateQuery = query => {

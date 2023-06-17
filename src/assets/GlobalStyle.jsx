@@ -43,6 +43,10 @@ header{
   margin-bottom: 16px;
   box-shadow: 0px 7px 12px 0px ${p => p.theme.colors.backdrop};
 }
+a{
+  color: #000000;
+  text-decoration: none;
+}
 nav a.active{
   color: #0e0a9d;
 }
