@@ -15,7 +15,6 @@ const MovieCard = ({
   },
 }) => {
   const location = useLocation();
-  console.log(location);
   return (
     <CardStyled
       style={{
