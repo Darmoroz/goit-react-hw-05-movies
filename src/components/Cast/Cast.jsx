@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { getMovies } from 'services/api';
 import { CastGrid } from './Cast.styled';
 
+import image from 'assets/images/no_image.jpg';
+
 const Cast = () => {
   const { id } = useParams();
   const [cast, setCast] = useState(null);
@@ -32,7 +34,7 @@ const Cast = () => {
               <img
                 src={
                   profile_path === null || undefined
-                    ? 'https://cdn0.iconfinder.com/data/icons/people-12/24/Anonymous-2-512.png'
+                    ? image
                     : `https://image.tmdb.org/t/p/w500${profile_path}`
                 }
                 alt={original_name}
