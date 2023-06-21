@@ -11,7 +11,7 @@ const Movies = () => {
   const [queryMovies, setQueryMovies] = useState([]);
 
   const query = searchParams.get('query') ?? '';
-  let total = useRef();
+  const total = useRef();
 
   useEffect(() => {
     if (!query) {
@@ -29,11 +29,14 @@ const Movies = () => {
   const updateQuery = query => {
     setSearchParams({ query });
   };
+
   return (
     <>
       <SearchBar onSubmit={updateQuery} />
-      {queryMovies?.length > 0 && <MoviesGallery movies={queryMovies} />}
-      {total.current === 0 && (
+      {queryMovies?.length > 0 && query && (
+        <MoviesGallery movies={queryMovies} />
+      )}
+      {total.current === 0 && query && (
         <img
           src={image}
           alt="not found"

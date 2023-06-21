@@ -8,9 +8,9 @@ const moviesAPI = axios.create({
 });
 moviesAPI.defaults.headers.common['Authorization'] = `Bearer ${ACCESS_TOKEN}`;
 
-export const getMovies = async (value, params = {}) => {
-  const resolve = await moviesAPI
-    .get(value, { params: { ...params } })
+export const getMovies = (pathName, params = {}) => {
+  const resolve = moviesAPI
+    .get(pathName, { params: { ...params } })
     .catch(error => console.log(error.message));
   return resolve;
 };

@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
 import { AddInfoStyled, CardStyled } from './MovieCard.styled';
 
@@ -14,6 +14,8 @@ const MovieCard = ({
     backdrop_path,
   },
 }) => {
+  const location = useLocation();
+  console.log(location);
   return (
     <CardStyled
       style={{
@@ -46,10 +48,14 @@ const MovieCard = ({
         <p>Additional information</p>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={{ from: location.state?.from }}>
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link to="reviews" state={{ from: location.state?.from }}>
+              Reviews
+            </Link>
           </li>
         </ul>
       </AddInfoStyled>
